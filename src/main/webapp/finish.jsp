@@ -8,14 +8,10 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
+<head>
     <title>$Title$</title>
-  </head>
-  <body>
-  $END$
-  <%--<form:form modelAttribute="fileUploadHandler" enctype="multipart/form-data">--%>
-    <%--Select file: <input type="file" name="file"/>--%>
-    <%--<input type="submit" name="_eventId_upload" value="Upload" />--%>
-  <%--</form:form>--%>
-  </body>
+</head>
+<body>
+<h1>FINISH</h1>
+</body>
 </html>

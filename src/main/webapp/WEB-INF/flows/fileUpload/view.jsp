@@ -13,9 +13,9 @@
   </head>
   <body>
   $END$
-  <%--<form:form modelAttribute="fileUploadHandler" enctype="multipart/form-data">--%>
-    <%--Select file: <input type="file" name="file"/>--%>
-    <%--<input type="submit" name="_eventId_upload" value="Upload" />--%>
-  <%--</form:form>--%>
+  <form:form modelAttribute="fileUploadHandler" enctype="multipart/form-data">
+    Select file: <input type="file" name="file"/>
+    <input type="submit" name="_eventId_upload" value="Upload" />
+  </form:form>
   </body>
 </html>
