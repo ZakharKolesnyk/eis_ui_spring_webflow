@@ -1,0 +1,22 @@
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow
+						  http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+
+    <!--<view-state id="uploadFile" model="uploadFileHandler">-->
+    <!--<var name="fileUploadHandler" class="com.chisw.web.model.FileUploadHandler" />-->
+    <!--<transition on="upload" to="finish" >-->
+    <!--<evaluate expression="fileUploadHandler.processFile()"/>-->
+    <!--</transition>-->
+    <!--<transition on="cancel" to="finish" bind="false"/>-->
+    <!--</view-state>-->
+
+    <view-state id="activation" view="../view/activation.jsp">
+        <transition on="activate" to="success"/>
+        <transition on="cancel" to="failure"/>
+    </view-state>
+
+    <view-state id="success" view="../view/success.jsp"/>
+    <view-state id="failure" view="../view/failure.jsp"/>
+
+</flow>

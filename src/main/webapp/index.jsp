@@ -1,4 +1,4 @@
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%--<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>--%>
 <%--
   Created by IntelliJ IDEA.
   User: user
@@ -8,14 +8,16 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
+<head>
     <title>$Title$</title>
-  </head>
-  <body>
-  $END$
-  <%--<form:form modelAttribute="fileUploadHandler" enctype="multipart/form-data">--%>
-    <%--Select file: <input type="file" name="file"/>--%>
-    <%--<input type="submit" name="_eventId_upload" value="Upload" />--%>
-  <%--</form:form>--%>
-  </body>
+</head>
+<body>
+$END$
+<a href="${externalContext}/activationFlow">activation</a>
+<%--<a href="${externalContext}/activation">activation</a>--%>
+<%--<form:form modelAttribute="fileUploadHandler" enctype="multipart/form-data">--%>
+<%--Select file: <input type="file" name="file"/>--%>
+<%--<input type="submit" name="_eventId_upload" value="Upload" />--%>
+<%--</form:form>--%>
+</body>
 </html>

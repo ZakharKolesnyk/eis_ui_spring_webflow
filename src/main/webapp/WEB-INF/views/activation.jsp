@@ -8,10 +8,14 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head>
+  <head>
     <title>$Title$</title>
-</head>
-<body>
-<h1>FINISH</h1>
-</body>
+  </head>
+  <body>
+  <h2>Click to activate account</h2>
+  <form method="post" action="${flowExecutionUrl}">
+    <input type="submit" name="_eventId_activate" value="activate" />
+    <input type="submit" name="_eventId_cancel" value="cancel" />
+  </form>
+  </body>
 </html>

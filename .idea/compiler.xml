@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="eis_ui_spring_webflow" target="1.5" />
+      <module name="eis_ui_spring_webflow" target="1.6" />
     </bytecodeTargetLevel>
   </component>
 </project>
