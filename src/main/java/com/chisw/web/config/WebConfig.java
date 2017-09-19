@@ -13,8 +13,6 @@ import org.springframework.web.servlet.view.JstlView;
 import org.springframework.webflow.mvc.servlet.FlowHandlerAdapter;
 import org.springframework.webflow.mvc.servlet.FlowHandlerMapping;
 
-import javax.servlet.http.HttpSession;
-
 @Configuration
 @EnableWebMvc
 @ComponentScan("com.chisw")
@@ -25,11 +23,12 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Bean
     public ViewResolver viewResolver() {
-        InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-        resolver.setViewClass(JstlView.class);
-        resolver.setPrefix("/WEB-INF/views");
-        resolver.setSuffix(".jsp");
-        return resolver;
+        return new InternalResourceViewResolver() {{
+            setExposeContextBeansAsAttributes(true);
+            setViewClass(JstlView.class);
+            setPrefix("/WEB-INF/views/");
+            setSuffix(".jsp");
+        }};
     }
 
     @Override
@@ -42,14 +41,14 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     public FlowHandlerMapping flowHandlerMapping() {
         FlowHandlerMapping handlerMapping = new FlowHandlerMapping();
         handlerMapping.setOrder(-1);
-        handlerMapping.setFlowRegistry(this.webFlowConfig.flowRegistry());
+        handlerMapping.setFlowRegistry(webFlowConfig.flowRegistry());
         return handlerMapping;
     }
 
     @Bean
     public FlowHandlerAdapter flowHandlerAdapter() {
         FlowHandlerAdapter handlerAdapter = new FlowHandlerAdapter();
-        handlerAdapter.setFlowExecutor(this.webFlowConfig.flowExecutor());
+        handlerAdapter.setFlowExecutor(webFlowConfig.flowExecutor());
         handlerAdapter.setSaveOutputToFlashScopeOnRedirect(true);
         return handlerAdapter;
     }
