@@ -1,14 +1,14 @@
 <flow xmlns="http://www.springframework.org/schema/webflow"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.springframework.org/schema/webflow
-						  http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+						  http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd" start-state="activation">
 
-    <view-state id="activation-flow" view="flow-views/activation.jsp">
+    <view-state id="activation" view="activation.jsp">
         <transition on="activate" to="success"/>
         <transition on="cancel" to="failure"/>
     </view-state>
 
-    <view-state id="success" view="flow-views/success.jsp"/>
-    <view-state id="failure" view="flow-views/failure.jsp"/>
+    <view-state id="success" view="success.jsp"/>
+    <view-state id="failure" view="failure.jsp"/>
 
 </flow>

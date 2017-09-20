@@ -12,7 +12,7 @@ public class WebFlowConfig extends AbstractFlowConfiguration {
     @Bean
     public FlowDefinitionRegistry flowRegistry() {
         return getFlowDefinitionRegistryBuilder()
-                .addFlowLocationPattern("/WEB-INF/flows/*-flow.xml")
+                .addFlowLocationPattern("/WEB-INF/flows/**/*.xml")
                 .build();
     }
 

@@ -13,7 +13,7 @@
 </head>
 <body>
 $END$
-<a href="${externalContext}/activation-flow">activation</a>
+<a href="${externalContext}/activation">activation</a>
 <%--<a href="${externalContext}/activation">activation</a>--%>
 <%--<form:form modelAttribute="fileUploadHandler" enctype="multipart/form-data">--%>
 <%--Select file: <input type="file" name="file"/>--%>
