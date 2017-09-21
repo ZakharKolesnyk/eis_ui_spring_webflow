@@ -11,8 +11,31 @@
     <title>Main Info</title>
 </head>
 <body>
-<h3>Main Info</h3>
-<p>Some content.</p>
+<div style="min-height: 400px;" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 border border-danger">
+    <div style="min-height: 50px;" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 border border-danger">
+        <ul class="nav nav-tabs">
+            <li class="active"><a id="mainInfo" data-toggle="tab">Общая информация</a></li>
+            <li><a id="paySchedule" data-toggle="tab"
+                   onclick="contractTabContent('${flowExecutionUrl}&_eventId=paySchedule')"
+                   role="button">График платежей</a></li>
+            <li><a id="contractSubject" data-toggle="tab"
+                   onclick="contractTabContent('${flowExecutionUrl}&_eventId=contractSubject')"
+                   role="button">Предмет договора</a></li>
+            <li><a id="contractInfo" data-toggle="tab"
+                   onclick="contractTabContent('${flowExecutionUrl}&_eventId=contractorInfo')"
+                   role="button">Информация о подрядчике</a></li>
+            <li><a id="docs" data-toggle="tab" onclick="contractTabContent('${flowExecutionUrl}&_eventId=docs')"
+                   role="button">Документы</a></li>
+        </ul>
+    </div>
+    <div style="min-height: 350px;" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 border border-danger">
+        <div class="tab-content" id="tabContent">
+            <div style="height: 500px;" id="home" class="tab-pane fade in active border border-warning">
+                <h1>MainInfo</h1>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="row vertical-align" style="height: 400px">
     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
         <div class="pull-left">
@@ -22,13 +45,8 @@
     </div>
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
         <div class="pull-right">
-            <form method="post" action="${flowExecutionUrl}">
-                <%--<a href="#"><img src="../../../static/images/client_btn.png"></a>--%>
-                <button type="submit" name="_eventId_next" value="next"><img src="../../../static/images/client_btn.png"></button>
-                <%--<input type="submit" name="_eventId_activate" value="activate" />--%>
-                <%--<input type="submit" name="_eventId_cancel" value="cancel" />--%>
-            </form>
-
+            <a onclick="contractTabContent('${flowExecutionUrl}&_eventId=next')"
+               role="button"><img src="../../../static/images/client_btn.png"></a>
         </div>
     </div>
 </div>

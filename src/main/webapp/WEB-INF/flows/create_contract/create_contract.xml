@@ -4,23 +4,47 @@
 						  http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd" start-state="mainInfo">
 
 
-    <view-state id="changeSearchCriteria" view="enterSearchCriteria.xhtml" popup="true">
-        <on-entry>
-            <render fragments="hotelSearchForm" />
-        </on-entry>
-        <transition on="search" to="reviewHotels">
-            <evaluate expression="searchCriteria.resetPage()"/>
-        </transition>
+    <var name="contract" class="com.chisw.service.pojo.Contract"/>
+
+    <view-state id="mainInfo" view="main_info.jsp" model="contract">
+        <transition on="next" to="paySchedule"/>
+        <transition on="paySchedule" to="paySchedule"/>
+        <transition on="contractSubject" to="contractSubject"/>
+        <transition on="contractorInfo" to="contractorInfo"/>
+        <transition on="docs" to="docs"/>
     </view-state>
 
-    <!--<view-state id="mainInfo" view="main_info.jsp">-->
-        <!--<transition on="next" to="paySchedule"/>-->
-    <!--</view-state>-->
+    <!--<view-state id="mainInfo" view="main_info.jsp"/>-->
+    <view-state id="paySchedule" view="pay_schedule.jsp">
+        <transition on="next" to="contractSubject"/>
+        <transition on="mainInfo" to="mainInfo"/>
+        <transition on="contractSubject" to="contractSubject"/>
+        <transition on="contractorInfo" to="contractorInfo"/>
+        <transition on="docs" to="docs"/>
+    </view-state>
+    <view-state id="contractSubject" view="contract_subject.jsp">
+        <transition on="next" to="contractorInfo"/>
+        <transition on="mainInfo" to="mainInfo"/>
+        <transition on="paySchedule" to="paySchedule"/>
+        <transition on="contractorInfo" to="contractorInfo"/>
+        <transition on="docs" to="docs"/>
+    </view-state>
+    <view-state id="contractorInfo" view="contractor_info.jsp">
+        <transition on="next" to="docs"/>
+        <transition on="mainInfo" to="mainInfo"/>
+        <transition on="paySchedule" to="paySchedule"/>
+        <transition on="contractSubject" to="contractSubject"/>
+        <transition on="docs" to="docs"/>
+    </view-state>
+    <view-state id="docs" view="docs.jsp">
+        <transition on="next" to="end"/>
+        <transition on="mainInfo" to="mainInfo"/>
+        <transition on="paySchedule" to="paySchedule"/>
+        <transition on="contractSubject" to="contractSubject"/>
+        <transition on="contractorInfo" to="contractorInfo"/>
+    </view-state>
 
-    <view-state id="paySchedule" view="pay_schedule.jsp"/>
-    <view-state id="contractSubject" view="contract_subject.jsp"/>
-    <view-state id="contractorInfo" view="contractor_info.jsp"/>
-    <view-state id="docs" view="docs.jsp"/>
+    <end-state id="end" view="end_create_contract.jsp"/>
 
 
 </flow>

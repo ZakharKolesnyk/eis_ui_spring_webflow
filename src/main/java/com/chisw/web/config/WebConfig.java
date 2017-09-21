@@ -35,7 +35,12 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/static/**")
                 .addResourceLocations("/static/");
+        //for spring-js library
+        registry.addResourceHandler("/resources/**")
+                .addResourceLocations("classpath:/META-INF/web-resources/");
     }
+
+
 
     @Bean
     public FlowHandlerMapping flowHandlerMapping() {
