@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Contract implements Serializable{
 
-    private String name;
+    private String name="contract";
 
     public Contract() {
     }

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class StartController {
 
-    @RequestMapping(path = "/contract", method = RequestMethod.GET)
+    @RequestMapping(value = "/contract", method = RequestMethod.GET)
     public String createContract(){
         return "create_contract";
     }
