@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: user
-  Date: 20.09.17
-  Time: 14:19
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -46,8 +39,8 @@
     </div>
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
         <div class="pull-right">
-            <a onclick="contractTabContent('${flowExecutionUrl}&_eventId=next')"
-               role="button"><img src="../../../static/images/client_btn.png"></a>
+            <a class="pull-right btn btn-primary"
+               onclick="contractTabContent('${flowExecutionUrl}&_eventId=next')">Next</a>
         </div>
     </div>
 </div>

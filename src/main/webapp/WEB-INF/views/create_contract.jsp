@@ -28,7 +28,7 @@
                 </div>
             </div>
         </div>
-        <div class="container" id="tabContent"></div>
+        <div id="tabContent"></div>
     </div>
 </div>
 </body>
