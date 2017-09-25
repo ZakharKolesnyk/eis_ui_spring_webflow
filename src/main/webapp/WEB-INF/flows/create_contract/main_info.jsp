@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
     <title>Main Info</title>
@@ -22,31 +24,34 @@
         <ul class="nav nav-tabs">
             <li class="active"><a id="mainInfo" data-toggle="tab">Общая информация</a></li>
             <li><a id="paySchedule" data-toggle="tab" role="button"
-                   onclick="contractTabContent('${flowExecutionUrl}&_eventId=paySchedule')">График платежей</a></li>
+                   onclick="submitMainInfoForm('${flowExecutionUrl}&_eventId=paySchedule')">График платежей</a></li>
             <li><a id="contractSubject" data-toggle="tab" role="button"
-                   onclick="contractTabContent('${flowExecutionUrl}&_eventId=contractSubject')">Предмет договора</a>
+                   onclick="submitMainInfoForm('${flowExecutionUrl}&_eventId=contractSubject')">Предмет договора</a>
             </li>
             <li><a id="contractInfo" data-toggle="tab" role="button"
-                   onclick="contractTabContent('${flowExecutionUrl}&_eventId=contractorInfo')">Информация о
+                   onclick="submitMainInfoForm('${flowExecutionUrl}&_eventId=contractorInfo')">Информация о
                 подрядчике</a></li>
             <li><a id="docs" data-toggle="tab" role="button"
-                   onclick="contractTabContent('${flowExecutionUrl}&_eventId=docs')">Документы</a>
+                   onclick="submitMainInfoForm('${flowExecutionUrl}&_eventId=docs')">Документы</a>
             </li>
         </ul>
     </div>
     <div style="min-height: 350px;" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 border border-danger">
         <div class="tab-content">
-            <div style="height: 500px;" id="home" class="tab-pane fade in active border border-warning">
-                <div class="row vertical-align well">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 border border-primary">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bg-primary text-white">
-                            Информация о закупке
+
+                       <%--action="${flowExecutionUrl}&_eventId=next">--%>
+                <div style="height: 500px;" id="home" class="tab-pane fade in active border border-warning">
+                    <form:form method="get" id="mainInfoForm" modelAttribute="contract">
+                    <div class="row vertical-align well">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 border border-primary">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bg-primary text-white">
+                                Информация о закупке
+                            </div>
+
                         </div>
 
-                    </div>
-
-                    <div class="part_2 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <%--<div class="container">--%>
+                        <div class="part_2 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <%--<div class="container">--%>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5"></div>
                                 <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
@@ -59,7 +64,7 @@
                                 <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
                                     <label>№ электронного аукциона</label></div>
                                 <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
-                                    <input class="col-lg-8 col-md-8 col-sm-8 col-xs-8"/>
+                                    <form:input cssClass="col-lg-8 col-md-8 col-sm-8 col-xs-8" path="serialElectAuction"/>
                                 </div>
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -106,25 +111,25 @@
                                     </div>
                                 </div>
                             </div>
-                        <%--</div>--%>
-                    </div>
-                </div>
-
-                <div class="row vertical-align well">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 border border-primary">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bg-primary text-white">
-                            Заказчик
+                                <%--</div>--%>
                         </div>
-
                     </div>
-                    <div class="part_3 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <%--<div class="container">--%>
+
+                    <div class="row vertical-align well">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 border border-primary">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bg-primary text-white">
+                                Заказчик
+                            </div>
+
+                        </div>
+                        <div class="part_3 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <%--<div class="container">--%>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
                                     <label>Полное наименование Заказчика</label>
                                 </div>
                                 <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
-                                    <label>Autowired</label>
+                                        <c:out value="${contract.costumer.fullname}"/>
                                 </div>
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -132,32 +137,32 @@
                                     <label>Сокращенное наименование Заказчика</label>
                                 </div>
                                 <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
-                                    <label>Autowired</label>
+                                    <c:out value="${contract.costumer.shortname}"/>
                                 </div>
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
                                     <label>ИНН
-                                        65256565153</label>
+                                            <c:out value="${contract.costumer.inn}"/>
                                     <label>КПП
-                                        65256565153</label>
+                                            <c:out value="${contract.costumer.kpp}"/>
                                 </div>
                                 <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
                                 </div>
                             </div>
-                        <%--</div>--%>
-                    </div>
-                </div>
-
-                <div class="row vertical-align well">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 border border-primary">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bg-primary text-white">
-                            Общие данные
+                                <%--</div>--%>
                         </div>
-
                     </div>
-                    <div class="part_1 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <%--<div class="container">--%>
+
+                    <div class="row vertical-align well">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 border border-primary">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bg-primary text-white">
+                                Общие данные
+                            </div>
+
+                        </div>
+                        <div class="part_1 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <%--<div class="container">--%>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
                                     <label>Дата заполнения документа</label>
@@ -205,8 +210,9 @@
                                             class="text-danger"> *</span></label>
                                 </div>
                                 <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
-                                    <input name="amountState" type="radio" checked/><label>Один этап</label>
-                                    <input name="amountState" type="radio"/><label>Несколько этапов</label>
+
+                                    <input name="amountState" type="radio" checked value="1"/><label>Один этап</label>
+                                    <input name="amountState" type="radio" value="2"/><label>Несколько этапов</label>
                                 </div>
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -262,7 +268,7 @@
                                             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
                                                 <input type="date"/>
                                                 <!--удалить отображать кроме первой последней даты-->
-                                                <a href="#"><img src="../images/del.png"/>Удалить</a>
+                                                <a href="#"><img src="../../../static/images/del.png"/>Удалить</a>
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -275,20 +281,20 @@
                                         </div>
                                     </div>
                                 </div>
-                            <%--</div>--%>
+                                    <%--</div>--%>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="row vertical-align well">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 border border-primary">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bg-primary text-white">
-                            Источники финансирования
+                    <div class="row vertical-align well">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 border border-primary">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bg-primary text-white">
+                                Источники финансирования
+                            </div>
+
                         </div>
-
-                    </div>
-                    <div class="part_3 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <%--<div class="container">--%>
+                        <div class="part_3 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <%--<div class="container">--%>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                     <label>Тип источника финансирования по<br>капитальному ремонту<span
@@ -381,20 +387,20 @@
                                         </div>
                                     </div>
                                 </div>
-                            <%--</div>--%>
+                                    <%--</div>--%>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="row vertical-align well">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 border border-primary">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bg-primary text-white">
-                            Обеспечение исполнения договора
+                    <div class="row vertical-align well">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 border border-primary">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bg-primary text-white">
+                                Обеспечение исполнения договора
+                            </div>
+
                         </div>
-
-                    </div>
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <%--<div class="container">--%>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <%--<div class="container">--%>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <label class="checkbox"> <input type="checkbox"> Задать требование об обеспечении
                                     использования договора</label>
@@ -405,12 +411,12 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <input name="amountState" type="radio" checked/><label>Банковская гарантия,
+                                        <input name="typeGuarantee" type="radio" checked/><label>Банковская гарантия,
                                         выданная
                                         банком</label>
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <input name="amountState" type="radio"/><label>Обеспечительный платеж</label>
+                                        <input name="typeGuarantee" type="radio"/><label>Обеспечительный платеж</label>
                                     </div>
                                 </div>
                             </div>
@@ -432,22 +438,28 @@
                                     <input/><label>в российских рублях</label>
                                 </div>
                             </div>
-                        <%--</div>--%>
+                                <%--</div>--%>
+                        </div>
+                    </div>
+                    </form:form>
+                    <div class="row vertical-align well">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 border border-primary">
+                            <div class="pull-left">
+                                <a href="#"><img src="../../../static/images/save.png"/>Сохранить и закрыть</a>
+                                <a href="#"><img src="../../../static/images/warming.png"/>Сохранить и проверить
+                                    нарушения</a>
+                            </div>
+                                <%--<a class="pull-right btn btn-primary"--%>
+                                <%--onclick="contractTabContent('${flowExecutionUrl}&_eventId=next')">Далее</a>--%>
+                            <%--<button hidden name=""--%>
+                            <a class="pull-right btn btn-primary"
+                                    onclick="submitMainInfoForm('${flowExecutionUrl}&_eventId=next')"
+                            >Далее
+                            </a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="row vertical-align well">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 border border-primary">
-                        <div class="pull-left">
-                            <a href="#"><img src="../../../static/images/save.png"/>Сохранить и закрыть</a>
-                            <a href="#"><img src="../../../static/images/warming.png"/>Сохранить и проверить
-                                нарушения</a>
-                        </div>
-                        <a class="pull-right btn btn-primary"
-                           onclick="contractTabContent('${flowExecutionUrl}&_eventId=next')">Далее</a>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>

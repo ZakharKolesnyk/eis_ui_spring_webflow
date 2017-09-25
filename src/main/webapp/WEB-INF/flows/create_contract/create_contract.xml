@@ -6,7 +6,7 @@
 
     <var name="contract" class="com.chisw.service.pojo.Contract"/>
 
-    <view-state id="mainInfo" view="main_info.jsp">
+    <view-state id="mainInfo" view="main_info.jsp" model="contract">
         <transition on="next" to="paySchedule"/>
         <transition on="paySchedule" to="paySchedule"/>
         <transition on="contractSubject" to="contractSubject"/>
@@ -14,7 +14,12 @@
         <transition on="docs" to="docs"/>
     </view-state>
 
-    <view-state id="paySchedule" view="pay_schedule.jsp">
+    <!--<action-state id="firstStep">-->
+        <!--<evaluate expression="true "/>-->
+        <!--<transition on="true" to="paySchedule"/>-->
+    <!--</action-state>-->
+
+    <view-state id="paySchedule" view="pay_schedule.jsp" model="contract">
         <transition on="next" to="contractSubject"/>
         <transition on="mainInfo" to="mainInfo"/>
         <transition on="contractSubject" to="contractSubject"/>
@@ -22,7 +27,7 @@
         <transition on="docs" to="docs"/>
     </view-state>
 
-    <view-state id="contractSubject" view="contract_subject.jsp">
+    <view-state id="contractSubject" view="contract_subject.jsp" model="contract">
         <transition on="next" to="contractorInfo"/>
         <transition on="mainInfo" to="mainInfo"/>
         <transition on="paySchedule" to="paySchedule"/>
@@ -30,7 +35,7 @@
         <transition on="docs" to="docs"/>
     </view-state>
 
-    <view-state id="contractorInfo" view="contractor_info.jsp">
+    <view-state id="contractorInfo" view="contractor_info.jsp" model="contract">
         <transition on="next" to="docs"/>
         <transition on="mainInfo" to="mainInfo"/>
         <transition on="paySchedule" to="paySchedule"/>
@@ -38,7 +43,7 @@
         <transition on="docs" to="docs"/>
     </view-state>
 
-    <view-state id="docs" view="docs.jsp">
+    <view-state id="docs" view="docs.jsp" model="contract">
         <transition on="next" to="end"/>
         <transition on="mainInfo" to="mainInfo"/>
         <transition on="paySchedule" to="paySchedule"/>

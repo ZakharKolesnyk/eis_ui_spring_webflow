@@ -7,6 +7,17 @@ function contractTabContent(url, data) {
     );
 }
 
+function submitMainInfoForm(url) {
+    $.ajax({
+        type: 'GET',
+        data: $('#mainInfoForm').serialize(),
+        url: url
+    }).done(
+        function (responseText) {
+            $('#tabContent').html(responseText);
+        });
+}
+
 
 // $.ajax({
 //     url: url,

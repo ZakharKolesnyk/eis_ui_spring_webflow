@@ -10,7 +10,6 @@
         div.dashed {
             border-style: dashed;
             color: grey;
-            size: px;
         }
     </style>
 </head>
@@ -19,16 +18,16 @@
     <div style="min-height: 50px;" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 border border-danger">
         <ul class="nav nav-tabs">
             <li><a id="mainInfo" data-toggle="tab"
-                   onclick="contractTabContent('${flowExecutionUrl}&_eventId=mainInfo')"
+                   onclick="submitMainInfoForm('${flowExecutionUrl}&_eventId=mainInfo')"
                    role="button">Общая информация</a></li>
             <li><a id="paySchedule" data-toggle="tab"
-                   onclick="contractTabContent('${flowExecutionUrl}&_eventId=paySchedule')"
+                   onclick="submitMainInfoForm('${flowExecutionUrl}&_eventId=paySchedule')"
                    role="button">График платежей</a></li>
             <li class="active"><a id="contractSubject" data-toggle="tab">Предмет договора</a></li>
             <li><a id="contractInfo" data-toggle="tab"
-                   onclick="contractTabContent('${flowExecutionUrl}&_eventId=contractorInfo')"
+                   onclick="submitMainInfoForm('${flowExecutionUrl}&_eventId=contractorInfo')"
                    role="button">Информация о подрядчике</a></li>
-            <li><a id="docs" data-toggle="tab" onclick="contractTabContent('${flowExecutionUrl}&_eventId=docs')"
+            <li><a id="docs" data-toggle="tab" onclick="submitMainInfoForm('${flowExecutionUrl}&_eventId=docs')"
                    role="button">Документы</a></li>
         </ul>
     </div>
@@ -79,7 +78,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-                                    <a href="#" role="button"><img src="../images/add_green.gif"/></a>
+                                    <a href="#" role="button"><img src="../../../static/images/add_green.gif"/></a>
 
                                 </div>
                             </div>
@@ -89,14 +88,14 @@
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                     <a href="#" role="button" class="pull-right"><img
-                                            src="../images/del.png"/>Удалить</a>
+                                            src="../../../static/images/del.png"/>Удалить</a>
                                 </div>
                                 <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
                                     <label>2. Замена фланцевых соединений труб</label>
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                     <a href="#" role="button" class="pull-right"><img
-                                            src="../images/del.png"/>Удалить</a>
+                                            src="../../../static/images/del.png"/>Удалить</a>
                                 </div>
                             </div>
                         </div>
@@ -143,10 +142,10 @@
                             </div>
                             <div class="text-left col-lg-2 col-md-2 col-sm-2 col-xs-2">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <a href="#" role="button"><img src="../images/edit.png"/> Редактировать</a>
+                                    <a href="#" role="button"><img src="../../../static/images/edit.png"/> Редактировать</a>
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <a href="#" role="button"><img src="../images/del.png"/> Удалить</a>
+                                    <a href="#" role="button"><img src="../../../static/images/del.png"/> Удалить</a>
                                 </div>
                             </div>
                             <hr class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -157,7 +156,7 @@
                                 <div class="col-lg-10 col-md-11 col-sm-11 col-xs-11">
                                     <textarea size="3">Укажите место проведения работ</textarea></div>
 
-                                <a href="#" role="button"><img src="../images/edit.png"/></a>
+                                <a href="#" role="button"><img src="../../../static/images/edit.png"/></a>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                 <div class="form-group">
@@ -175,7 +174,7 @@
                             </div>
                             <div class="text-left col-lg-2 col-md-2 col-sm-2 col-xs-2">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <a href="#" role="button"><img src="../images/save.gif"/>Сохранить</a>
+                                    <a href="#" role="button"><img src="../../../static/images/save.gif"/>Сохранить</a>
                                 </div>
                             </div>
                             <hr class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -186,7 +185,7 @@
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
-                                <a href="#" role="button" class="pull-left"><img src="../images/add_green.gif"/>Добавить
+                                <a href="#" role="button" class="pull-left"><img src="../../../static/images/add_green.gif"/>Добавить
                                     новую
                                     таблицу</a>
                             </div>
@@ -207,7 +206,7 @@
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
         <div class="pull-right">
             <a class="pull-right btn btn-primary"
-               onclick="contractTabContent('${flowExecutionUrl}&_eventId=next')">Далее</a>
+               onclick="submitMainInfoForm('${flowExecutionUrl}&_eventId=next')">Далее</a>
         </div>
     </div>
 </div>

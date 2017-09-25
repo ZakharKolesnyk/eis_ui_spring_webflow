@@ -8,16 +8,16 @@
     <div style="min-height: 50px;" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 border border-danger">
         <ul class="nav nav-tabs">
             <li><a id="mainInfo" data-toggle="tab"
-                   onclick="contractTabContent('${flowExecutionUrl}&_eventId=mainInfo')"
+                   onclick="submitMainInfoForm('${flowExecutionUrl}&_eventId=mainInfo')"
                    role="button">Общая информация</a></li>
             <li><a id="paySchedule" data-toggle="tab"
-                   onclick="contractTabContent('${flowExecutionUrl}&_eventId=paySchedule')"
+                   onclick="submitMainInfoForm('${flowExecutionUrl}&_eventId=paySchedule')"
                    role="button">График платежей</a></li>
             <li><a id="contractSubject" data-toggle="tab"
-                   onclick="contractTabContent('${flowExecutionUrl}&_eventId=contractSubject')"
+                   onclick="submitMainInfoForm('${flowExecutionUrl}&_eventId=contractSubject')"
                    role="button">Предмет договора</a></li>
             <li><a id="contractInfo" data-toggle="tab"
-                   onclick="contractTabContent('${flowExecutionUrl}&_eventId=contractInfo')"
+                   onclick="submitMainInfoForm('${flowExecutionUrl}&_eventId=contractInfo')"
                    role="button">Информация о подрядчике</a></li>
             <li class="active"><a id="docs" data-toggle="tab">Документы</a></li>
         </ul>
@@ -40,7 +40,7 @@
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
         <div class="pull-right">
             <a class="pull-right btn btn-primary"
-               onclick="contractTabContent('${flowExecutionUrl}&_eventId=next')">Создать</a>
+               onclick="submitMainInfoForm('${flowExecutionUrl}&_eventId=next')">Создать</a>
         </div>
     </div>
 </div>

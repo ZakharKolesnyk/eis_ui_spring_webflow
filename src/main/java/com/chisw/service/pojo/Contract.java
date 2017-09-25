@@ -2,18 +2,28 @@ package com.chisw.service.pojo;
 
 import java.io.Serializable;
 
-public class Contract implements Serializable{
+public class Contract implements Serializable {
 
-    private String name="contract";
+    private String serialElectAuction = "!!!!serialElectronicAuction";
+
+    private Costumer costumer = new Costumer();
 
     public Contract() {
     }
 
-    public String getName() {
-        return name;
+    public String getSerialElectAuction() {
+        return serialElectAuction;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setSerialElectAuction(String serialElectAuction) {
+        this.serialElectAuction = serialElectAuction;
+    }
+
+    public Costumer getCostumer() {
+        return costumer;
+    }
+
+    public void setCostumer(Costumer costumer) {
+        this.costumer = costumer;
     }
 }
