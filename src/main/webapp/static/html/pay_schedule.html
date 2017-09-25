@@ -6,6 +6,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        hr {
+            size: 5px;
+            color: red;
+        }
+    </style>
 </head>
 <body>
 <div class="row vertical-align well">
@@ -15,46 +21,215 @@
         </div>
 
     </div>
-    <div class="part_3 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <div class="container">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <label class="checkbox"> <input type="checkbox"> Указать график платежей в разбивке по этапам договора и
-                    источникам финансирования</label>
-            </div>
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <label>Цена договора {price} в российских рублях, из них введено в разбивке по годам <span
-                        class="text-danger">{other price}</span></label>
-            </div>
-            <div class="well col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                        <label class="text-primary">Этап: от {Дата начала исполнения этапа} до {Дата окончания
-                            исполнения этапа}</label>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                        {summ}
-                    </div>
-                </div>
+    <div class="part_1 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <label class="checkbox"> <input type="checkbox"> Указать график платежей в разбивке по этапам договора и
+                источникам финансирования</label>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <label>Цена договора {price} в российских рублях, из них введено в разбивке по годам <span
+                    class="text-danger">{other price}</span></label>
+        </div>
+        <div class="well col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                    <label>Наименование источника финансирования</label>
+                    <label class="text-primary">Этап: от {Дата начала исполнения этапа} до {Дата окончания
+                        исполнения этапа}</label>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <label class="text-danger">{summ}</label>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
                     <label>{Наименование источника финансирования}</label>
                 </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <label>Сумма договора на<span class="text-danger"> *</span></label>
+                        <label>Сумма договора на<span class="text-danger"> *</span></label>
                     </div>
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-<!--                        <input type=""-->
+                        <div class="form-group">
+                            <!--see business logic-->
+                            <select class="form-control">
+                                <option value="2000">2000</option>
+                                <option value="2001">2001</option>
+                                <option value="2002">2002</option>
+                                <option value="2003">2003</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <label>Сумма договора на<span class="text-danger"> *</span></label>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <!--see business logic-->
+                        <select class="form-control">
+                            <option value="2000">2000</option>
+                            <option value="2001">2001</option>
+                            <option value="2002">2002</option>
+                            <option value="2003">2003</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                    <label>Сумма договора на<span class="text-danger"> *</span></label>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <a href="#" role="button"><img src="../images/add_green.gif"/>Добавить период</a>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                    <div class="form-group">
+                        <!--see business logic-->
+                        <select class="form-control">
+                            <option value="">Бюджет сахалинской области</option>
+                            <option value="">2001</option>
+                            <option value="">2002</option>
+                            <option value="">2003</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                    <input type="text"/>
+                    <input type="text"/>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                    <div class="form-group">
+                        <!--see business logic-->
+                        <select class="form-control">
+                            <option value="">Источник финансирования</option>
+                            <option value="">2001</option>
+                            <option value="">2002</option>
+                            <option value="">2003</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                    <input type="text"/>
+                    <input type="text"/>
+                    <a href="#" role="button"><img src="../images/del.png"/>Удалить источник</a>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                    <a href="#" role="button"><img src="../images/add_green.gif"/>Добавить период</a>
+                </div>
+            </div>
+            <hr class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                    <label class="pull-right">Итого:</label>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                    <label>{450 000,00} в российских рублях</label>
                 </div>
             </div>
         </div>
     </div>
-</div>
+    <div class="part_3 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+        <div class="well col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <label class="text-primary">Этап: от {Дата начала исполнения этапа} до {Дата окончания
+                        исполнения этапа}</label>
+                </div>
+
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="text-center col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                    <label>Источники финансирования</label>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <label>Сумма договора на<span class="text-danger"> *</span></label>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="form-group">
+                            <!--see business logic-->
+                            <select class="form-control">
+                                <option value="2000">2000</option>
+                                <option value="2001">2001</option>
+                                <option value="2002">2002</option>
+                                <option value="2003">2003</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <a href="#" role="button"><img src="../images/add_green.gif"/>Добавить период</a>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                    <div class="form-group">
+                        <!--see business logic-->
+                        <select class="form-control">
+                            <option value="">Бюджет сахалинской области</option>
+                            <option value="">2001</option>
+                            <option value="">2002</option>
+                            <option value="">2003</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                    <input type="text"/>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                    <div class="form-group">
+                        <!--see business logic-->
+                        <select class="form-control">
+                            <option value="">Источник финансирования</option>
+                            <option value="">2001</option>
+                            <option value="">2002</option>
+                            <option value="">2003</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                    <input type="text"/>
+                    <a href="#" role="button"><img src="../images/del.png"/>Удалить источник</a>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                    <div class="form-group">
+                        <!--see business logic-->
+                        <select class="form-control">
+                            <option value="">Источник финансирования</option>
+                            <option value="">2001</option>
+                            <option value="">2002</option>
+                            <option value="">2003</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                    <input type="text"/>
+                    <a href="#" role="button"><img src="../images/del.png"/>Удалить источник</a>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                    <a href="#" role="button"><img src="../images/add_green.gif"/>Добавить период</a>
+                </div>
+            </div>
+            <hr class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                    <label class="pull-right">Итого:</label>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                    <label>{450 000,00} в российских рублях</label>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>

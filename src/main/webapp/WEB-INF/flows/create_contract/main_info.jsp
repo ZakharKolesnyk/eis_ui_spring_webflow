@@ -21,15 +21,16 @@
     <div style="min-height: 50px;" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 border border-danger">
         <ul class="nav nav-tabs">
             <li class="active"><a id="mainInfo" data-toggle="tab">Общая информация</a></li>
-            <li><a id="paySchedule" data-toggle="tab"
+            <li><a id="paySchedule" data-toggle="tab" role="button"
                    onclick="contractTabContent('${flowExecutionUrl}&_eventId=paySchedule')">График платежей</a></li>
-            <li><a id="contractSubject" data-toggle="tab"
+            <li><a id="contractSubject" data-toggle="tab" role="button"
                    onclick="contractTabContent('${flowExecutionUrl}&_eventId=contractSubject')">Предмет договора</a>
             </li>
-            <li><a id="contractInfo" data-toggle="tab"
+            <li><a id="contractInfo" data-toggle="tab" role="button"
                    onclick="contractTabContent('${flowExecutionUrl}&_eventId=contractorInfo')">Информация о
                 подрядчике</a></li>
-            <li><a id="docs" data-toggle="tab" onclick="contractTabContent('${flowExecutionUrl}&_eventId=docs')">Документы</a>
+            <li><a id="docs" data-toggle="tab" role="button"
+                   onclick="contractTabContent('${flowExecutionUrl}&_eventId=docs')">Документы</a>
             </li>
         </ul>
     </div>
@@ -43,45 +44,47 @@
                         </div>
 
                     </div>
+
                     <div class="part_2 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="container">
+                        <%--<div class="container">--%>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"></div>
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                    <a href="#"><label class="pull-right">Выбрать из реестра закупок по капитальному
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5"></div>
+                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                                    <a href="#"><label class="pull-right" role="button">Выбрать из реестра закупок по
+                                        капитальному
                                         ремонту</label></a>
                                 </div>
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
                                     <label>№ электронного аукциона</label></div>
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
                                     <input class="col-lg-8 col-md-8 col-sm-8 col-xs-8"/>
                                 </div>
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"></div>
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5"></div>
+                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
                                     <label class="checkbox"> <input type="checkbox"> Информация о размещении закупки не
                                         размещалась в
                                         ЕИС</label>
                                 </div>
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
                                     <label>Дата подведения результатов определения подрядной<br>
                                         организации</label></div>
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
                                     <input type="date"/>
                                 </div>
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
                                     <label>Реквизиты документа, подтверждающего основание<br>
                                         заключения договора<span class="text-danger"> *</span></label>
                                 </div>
-                                <div class="row">
-                                    <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <div class="form-group col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                                    <div class="row">
                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                             <input class="inputs"/>
                                             <label>финансирование документа</label>
@@ -103,10 +106,10 @@
                                     </div>
                                 </div>
                             </div>
-
-                        </div>
+                        <%--</div>--%>
                     </div>
                 </div>
+
                 <div class="row vertical-align well">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 border border-primary">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bg-primary text-white">
@@ -115,34 +118,34 @@
 
                     </div>
                     <div class="part_3 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="container">
+                        <%--<div class="container">--%>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
                                     <label>Полное наименование Заказчика</label>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
                                     <label>Autowired</label>
                                 </div>
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
                                     <label>Сокращенное наименование Заказчика</label>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
                                     <label>Autowired</label>
                                 </div>
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
                                     <label>ИНН
                                         65256565153</label>
                                     <label>КПП
                                         65256565153</label>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
                                 </div>
                             </div>
-                        </div>
+                        <%--</div>--%>
                     </div>
                 </div>
 
@@ -154,7 +157,7 @@
 
                     </div>
                     <div class="part_1 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="container">
+                        <%--<div class="container">--%>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
                                     <label>Дата заполнения документа</label>
@@ -272,7 +275,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            <%--</div>--%>
                         </div>
                     </div>
                 </div>
@@ -285,7 +288,7 @@
 
                     </div>
                     <div class="part_3 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="container">
+                        <%--<div class="container">--%>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                     <label>Тип источника финансирования по<br>капитальному ремонту<span
@@ -378,7 +381,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            <%--</div>--%>
                         </div>
                     </div>
                 </div>
@@ -391,7 +394,7 @@
 
                     </div>
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="container">
+                        <%--<div class="container">--%>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <label class="checkbox"> <input type="checkbox"> Задать требование об обеспечении
                                     использования договора</label>
@@ -429,9 +432,10 @@
                                     <input/><label>в российских рублях</label>
                                 </div>
                             </div>
-                        </div>
+                        <%--</div>--%>
                     </div>
                 </div>
+
                 <div class="row vertical-align well">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 border border-primary">
                         <div class="pull-left">
@@ -440,7 +444,7 @@
                                 нарушения</a>
                         </div>
                         <a class="pull-right btn btn-primary"
-                           onclick="contractTabContent('${flowExecutionUrl}&_eventId=next')">Next</a>
+                           onclick="contractTabContent('${flowExecutionUrl}&_eventId=next')">Далее</a>
                     </div>
                 </div>
             </div>

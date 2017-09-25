@@ -39,7 +39,7 @@
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
         <div class="pull-right">
             <a class="pull-right btn btn-primary"
-               onclick="contractTabContent('${flowExecutionUrl}&_eventId=next')">Next</a>
+               onclick="contractTabContent('${flowExecutionUrl}&_eventId=next')">Далее</a>
         </div>
     </div>
 </div>
