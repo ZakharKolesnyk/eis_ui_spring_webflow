@@ -39,9 +39,9 @@
     <div style="min-height: 350px;" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 border border-danger">
         <div class="tab-content">
 
-                       <%--action="${flowExecutionUrl}&_eventId=next">--%>
-                <div style="height: 500px;" id="home" class="tab-pane fade in active border border-warning">
-                    <form:form method="get" id="mainInfoForm" modelAttribute="contract">
+            <%--action="${flowExecutionUrl}&_eventId=next">--%>
+            <div style="height: 500px;" id="home" class="tab-pane fade in active border border-warning">
+                <form:form method="get" id="mainInfoForm" modelAttribute="contract">
                     <div class="row vertical-align well">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 border border-primary">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bg-primary text-white">
@@ -64,7 +64,8 @@
                                 <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
                                     <label>№ электронного аукциона</label></div>
                                 <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
-                                    <form:input cssClass="col-lg-8 col-md-8 col-sm-8 col-xs-8" path="serialElectAuction"/>
+                                    <form:input cssClass="col-lg-8 col-md-8 col-sm-8 col-xs-8"
+                                                path="serialElectAuction"/>
                                 </div>
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -129,7 +130,7 @@
                                     <label>Полное наименование Заказчика</label>
                                 </div>
                                 <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
-                                        <c:out value="${contract.costumer.fullname}"/>
+                                    <c:out value="${contract.costumer.fullname}"/>
                                 </div>
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -142,10 +143,10 @@
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
-                                    <label>ИНН
-                                            <c:out value="${contract.costumer.inn}"/>
-                                    <label>КПП
-                                            <c:out value="${contract.costumer.kpp}"/>
+                                    <label>ИНН</label>
+                                    <c:out value="${contract.costumer.inn}"/>
+                                    <label>КПП</label>
+                                    <c:out value="${contract.costumer.kpp}"/>
                                 </div>
                                 <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
                                 </div>
@@ -210,9 +211,10 @@
                                             class="text-danger"> *</span></label>
                                 </div>
                                 <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
-
-                                    <input name="amountState" type="radio" checked value="1"/><label>Один этап</label>
-                                    <input name="amountState" type="radio" value="2"/><label>Несколько этапов</label>
+                                    <c:forEach var="stepType" items="${stepTypes}">
+                                        <form:radiobutton path="stepType" value="${stepType}"
+                                                          label="${stepType.description}"/>
+                                    </c:forEach>
                                 </div>
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -410,14 +412,19 @@
                                     <label>Вид обеспечения исполнения обязательств<br>по договору</label>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <input name="typeGuarantee" type="radio" checked/><label>Банковская гарантия,
-                                        выданная
-                                        банком</label>
-                                    </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <input name="typeGuarantee" type="radio"/><label>Обеспечительный платеж</label>
-                                    </div>
+                                    <c:forEach var="assuranceType" items="${assuranceTypes}">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <form:radiobutton path="assuranceType" value="${assuranceType}" label="${assuranceType.description}"/>
+                                        </div>
+                                    </c:forEach>
+                                    <%--<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">--%>
+                                        <%--<input name="typeGuarantee" type="radio" checked/><label>Банковская гарантия,--%>
+                                        <%--выданная--%>
+                                        <%--банком</label>--%>
+                                    <%--</div>--%>
+                                    <%--<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">--%>
+                                        <%--<input name="typeGuarantee" type="radio"/><label>Обеспечительный платеж</label>--%>
+                                    <%--</div>--%>
                                 </div>
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -441,24 +448,24 @@
                                 <%--</div>--%>
                         </div>
                     </div>
-                    </form:form>
-                    <div class="row vertical-align well">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 border border-primary">
-                            <div class="pull-left">
-                                <a href="#"><img src="../../../static/images/save.png"/>Сохранить и закрыть</a>
-                                <a href="#"><img src="../../../static/images/warming.png"/>Сохранить и проверить
-                                    нарушения</a>
-                            </div>
-                                <%--<a class="pull-right btn btn-primary"--%>
-                                <%--onclick="contractTabContent('${flowExecutionUrl}&_eventId=next')">Далее</a>--%>
-                            <%--<button hidden name=""--%>
-                            <a class="pull-right btn btn-primary"
-                                    onclick="submitMainInfoForm('${flowExecutionUrl}&_eventId=next')"
-                            >Далее
-                            </a>
+                </form:form>
+                <div class="row vertical-align well">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 border border-primary">
+                        <div class="pull-left">
+                            <a href="#"><img src="../../../static/images/save.png"/>Сохранить и закрыть</a>
+                            <a href="#"><img src="../../../static/images/warming.png"/>Сохранить и проверить
+                                нарушения</a>
                         </div>
+                        <%--<a class="pull-right btn btn-primary"--%>
+                        <%--onclick="contractTabContent('${flowExecutionUrl}&_eventId=next')">Далее</a>--%>
+                        <%--<button hidden name=""--%>
+                        <a class="pull-right btn btn-primary"
+                           onclick="submitMainInfoForm('${flowExecutionUrl}&_eventId=next')"
+                        >Далее
+                        </a>
                     </div>
                 </div>
+            </div>
 
         </div>
     </div>

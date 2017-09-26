@@ -5,6 +5,11 @@
 
 
     <var name="contract" class="com.chisw.service.pojo.Contract"/>
+    <on-start>
+        <evaluate expression="contractServiceImpl.stepTypes()" result="flowScope.stepTypes"/>
+        <evaluate expression="contractServiceImpl.assuranceTypes()" result="flowScope.assuranceTypes"/>
+    </on-start>
+
 
     <view-state id="mainInfo" view="main_info.jsp" model="contract">
         <transition on="next" to="paySchedule"/>
