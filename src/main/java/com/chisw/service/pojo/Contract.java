@@ -17,7 +17,17 @@ public class Contract implements Serializable {
 
     private Costumer costumer = new Costumer();
 
+    private boolean purchaseInfoLocatedInEIS = false;
+
     public Contract() {
+    }
+
+    public boolean isPurchaseInfoLocatedInEIS() {
+        return purchaseInfoLocatedInEIS;
+    }
+
+    public void setPurchaseInfoLocatedInEIS(boolean purchaseInfoLocatedInEIS) {
+        this.purchaseInfoLocatedInEIS = purchaseInfoLocatedInEIS;
     }
 
     public String getSerialElectAuction() {

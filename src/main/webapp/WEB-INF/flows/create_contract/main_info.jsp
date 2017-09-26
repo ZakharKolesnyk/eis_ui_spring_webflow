@@ -38,8 +38,6 @@
     </div>
     <div style="min-height: 350px;" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 border border-danger">
         <div class="tab-content">
-
-            <%--action="${flowExecutionUrl}&_eventId=next">--%>
             <div style="height: 500px;" id="home" class="tab-pane fade in active border border-warning">
                 <form:form method="get" id="mainInfoForm" modelAttribute="contract">
                     <div class="row vertical-align well">
@@ -64,55 +62,64 @@
                                 <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
                                     <label>№ электронного аукциона</label></div>
                                 <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
-                                    <form:input cssClass="col-lg-8 col-md-8 col-sm-8 col-xs-8"
+                                    <form:input id="serialElectAuction" disabled="${contract.purchaseInfoLocatedInEIS}"
+                                                cssClass="col-lg-8 col-md-8 col-sm-8 col-xs-8"
                                                 path="serialElectAuction"/>
                                 </div>
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5"></div>
                                 <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
-                                    <label class="checkbox"> <input type="checkbox"> Информация о размещении закупки не
+                                    <label class="checkbox"> <form:checkbox id="purchaseInfoCheckBox"
+                                                                            onclick="changeHidePurchaseInfo()"
+                                                                            path="purchaseInfoLocatedInEIS"/> Информация
+                                        о размещении закупки не
                                         размещалась в
                                         ЕИС</label>
                                 </div>
                             </div>
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
-                                    <label>Дата подведения результатов определения подрядной<br>
-                                        организации</label></div>
-                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
-                                    <input type="date"/>
+                            <div id="hiddenPurchaseInfo" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                        <label>Дата подведения результатов определения подрядной<br>
+                                            организации</label></div>
+                                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                                        <input type="date"
+                                               <c:if test="${!contract.purchaseInfoLocatedInEIS}">disabled</c:if>/>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
-                                    <label>Реквизиты документа, подтверждающего основание<br>
-                                        заключения договора<span class="text-danger"> *</span></label>
-                                </div>
-                                <div class="form-group col-lg-7 col-md-7 col-sm-7 col-xs-7">
-                                    <div class="row">
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                            <input class="inputs"/>
-                                            <label>финансирование документа</label>
-                                        </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                            <div class="row vertical-align">
-                                                <label>№</label>
-                                                <input class="inputs"/>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                        <label>Реквизиты документа, подтверждающего основание<br>
+                                            заключения договора<span class="text-danger"> *</span></label>
+                                    </div>
+                                    <div class="form-group col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                <input class="inputs"
+                                                       <c:if test="${!contract.purchaseInfoLocatedInEIS}">disabled</c:if>/>
+                                                <label>финансирование документа</label>
                                             </div>
-                                            <label>номер документа</label>
-                                        </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                            <div class="row vertical-align">
-                                                <label>От</label>
-                                                <input type="date" class="inputs"/>
+                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                <div class="row vertical-align">
+                                                    <label>№</label>
+                                                    <input class="inputs"
+                                                           <c:if test="${!contract.purchaseInfoLocatedInEIS}">disabled</c:if>/>
+                                                </div>
+                                                <label>номер документа</label>
                                             </div>
-                                            <label>дата документа</label>
+                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                <div class="row vertical-align">
+                                                    <label>От</label>
+                                                    <input type="date" class="inputs"
+                                                           <c:if test="${!contract.purchaseInfoLocatedInEIS}">disabled</c:if>/>
+                                                </div>
+                                                <label>дата документа</label>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                                <%--</div>--%>
                         </div>
                     </div>
 
@@ -414,17 +421,10 @@
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                     <c:forEach var="assuranceType" items="${assuranceTypes}">
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                            <form:radiobutton path="assuranceType" value="${assuranceType}" label="${assuranceType.description}"/>
+                                            <form:radiobutton path="assuranceType" value="${assuranceType}"
+                                                              label="${assuranceType.description}"/>
                                         </div>
                                     </c:forEach>
-                                    <%--<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">--%>
-                                        <%--<input name="typeGuarantee" type="radio" checked/><label>Банковская гарантия,--%>
-                                        <%--выданная--%>
-                                        <%--банком</label>--%>
-                                    <%--</div>--%>
-                                    <%--<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">--%>
-                                        <%--<input name="typeGuarantee" type="radio"/><label>Обеспечительный платеж</label>--%>
-                                    <%--</div>--%>
                                 </div>
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">

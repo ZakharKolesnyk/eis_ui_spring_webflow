@@ -9,7 +9,7 @@ function contractTabContent(url, data) {
 
 function submitMainInfoForm(url) {
     $.ajax({
-        type: 'GET',
+        type: 'POST',
         data: $('#mainInfoForm').serialize(),
         url: url
     }).done(
@@ -18,7 +18,17 @@ function submitMainInfoForm(url) {
         });
 }
 
-
+function changeHidePurchaseInfo () {
+    if ($("#purchaseInfoCheckBox").is(":checked"))
+    {
+        $('#serialElectAuction').attr("disabled", true);
+        $('#serialElectAuction').attr("value", '');
+        $("#hiddenPurchaseInfo :input").attr("disabled", false);
+    } else {
+        $('#serialElectAuction').attr("disabled", false);
+        $("#hiddenPurchaseInfo :input").attr("disabled", true);
+    }
+}
 // $.ajax({
 //     url: url,
 //     data: data
