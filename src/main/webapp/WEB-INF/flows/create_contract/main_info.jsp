@@ -310,14 +310,25 @@
                                             class="text-danger"> *</span></label>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                    <select>
-                                        <option value="" disabled selected>Выберите тип источника финансирования по
-                                            капитальному
-                                            ремонту
-                                        </option>
-                                        <option value="1">second</option>
-                                        <option value="2">tird</option>
-                                    </select>
+                                    <form:select path="typeSourceFinancing">
+                                        <c:choose>
+                                            <c:when test="${contract.typeSourceFinancing eq null}">
+                                                <option value="" disabled selected>Выберите тип источника финансирования
+                                                    по капитальному ремонту
+                                                </option>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <form:option value="${contract.typeSourceFinancing}"
+                                                             label="${contract.typeSourceFinancing.description}"/>
+                                            </c:otherwise>
+                                        </c:choose>
+                                        <c:forEach var="typeSourceFinancing" items="${typeSourceFinancings}">
+                                            <c:if test="${contract.typeSourceFinancing ne typeSourceFinancing}">
+                                                <form:option value="${typeSourceFinancing}"
+                                                             label="${typeSourceFinancing.description}"/>
+                                            </c:if>
+                                        </c:forEach>
+                                    </form:select>
                                 </div>
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">

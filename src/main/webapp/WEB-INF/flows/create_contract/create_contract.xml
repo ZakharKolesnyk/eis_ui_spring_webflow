@@ -8,6 +8,7 @@
     <on-start>
         <evaluate expression="contractServiceImpl.stepTypes()" result="flowScope.stepTypes"/>
         <evaluate expression="contractServiceImpl.assuranceTypes()" result="flowScope.assuranceTypes"/>
+        <evaluate expression="contractServiceImpl.typeSourceFinancings()" result="flowScope.typeSourceFinancings"/>
     </on-start>
 
 

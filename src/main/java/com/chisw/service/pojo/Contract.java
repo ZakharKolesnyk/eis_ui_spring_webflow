@@ -2,6 +2,7 @@ package com.chisw.service.pojo;
 
 import com.chisw.service.enums.AssuranceType;
 import com.chisw.service.enums.StepType;
+import com.chisw.service.enums.TypeSourceFinancing;
 
 import java.io.Serializable;
 
@@ -19,7 +20,17 @@ public class Contract implements Serializable {
 
     private boolean purchaseInfoLocatedInEIS = false;
 
+    private TypeSourceFinancing typeSourceFinancing;
+
     public Contract() {
+    }
+
+    public TypeSourceFinancing getTypeSourceFinancing() {
+        return typeSourceFinancing;
+    }
+
+    public void setTypeSourceFinancing(TypeSourceFinancing typeSourceFinancing) {
+        this.typeSourceFinancing = typeSourceFinancing;
     }
 
     public boolean isPurchaseInfoLocatedInEIS() {
