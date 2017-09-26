@@ -162,7 +162,7 @@
                         </div>
                     </div>
 
-                    <div class="row vertical-align well">
+                    <div id="generalData" class="row vertical-align well">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 border border-primary">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bg-primary text-white">
                                 Общие данные
@@ -219,7 +219,7 @@
                                 </div>
                                 <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
                                     <c:forEach var="stepType" items="${stepTypes}">
-                                        <form:radiobutton path="stepType" value="${stepType}"
+                                        <form:radiobutton onclick="switchStepType()" path="stepType" value="${stepType}"
                                                           label="${stepType.description}"/>
                                     </c:forEach>
                                 </div>
@@ -258,11 +258,11 @@
                                 <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
                                     <!--если несколько этапов-->
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <a href="#"><img src="../../../static/images/add_green.gif"/>Добавить</a>
+                                        <a onclick="addStepFunc()" id="addStepButton" <c:if test="${contract.stepType eq 'ONE'}">hidden</c:if> href="#"><img src="../../../static/images/add_green.gif"/>Добавить</a>
                                     </div>
                                     <!--группа дат-->
-                                    <div class="group-date well col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div id="stepDates" class="group-date well col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div id="firstStepDates" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                                 <input type="date"/>
                                             </div>
@@ -270,17 +270,7 @@
                                                 <input type="date"/>
                                             </div>
                                         </div>
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                                <input type="date"/>
-                                            </div>
-                                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-                                                <input type="date"/>
-                                                <!--удалить отображать кроме первой последней даты-->
-                                                <a href="#"><img src="../../../static/images/del.png"/>Удалить</a>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div id="lastStepDates" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                                 <input type="date"/>
                                             </div>
@@ -467,9 +457,6 @@
                             <a href="#"><img src="../../../static/images/warming.png"/>Сохранить и проверить
                                 нарушения</a>
                         </div>
-                        <%--<a class="pull-right btn btn-primary"--%>
-                        <%--onclick="contractTabContent('${flowExecutionUrl}&_eventId=next')">Далее</a>--%>
-                        <%--<button hidden name=""--%>
                         <a class="pull-right btn btn-primary"
                            onclick="submitMainInfoForm('${flowExecutionUrl}&_eventId=next')"
                         >Далее
@@ -477,7 +464,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
