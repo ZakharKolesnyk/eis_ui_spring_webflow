@@ -17,7 +17,7 @@
                    onclick="submitMainInfoForm('${flowExecutionUrl}&_eventId=contractSubject')"
                    role="button">Предмет договора</a></li>
             <li><a id="contractInfo" data-toggle="tab"
-                   onclick="submitMainInfoForm('${flowExecutionUrl}&_eventId=contractInfo')"
+                   onclick="submitMainInfoForm('${flowExecutionUrl}&_eventId=contractorInfo')"
                    role="button">Информация о подрядчике</a></li>
             <li class="active"><a id="docs" data-toggle="tab">Документы</a></li>
         </ul>
