@@ -255,13 +255,13 @@
                                     <label>Даты начала и окончания исполнения этапов<br> договора<span
                                             class="text-danger"> *</span></label>
                                 </div>
-                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                                <div id="stepDates" <c:if test="${contract.stepType eq 'ONE'}">hidden</c:if> class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
                                     <!--если несколько этапов-->
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <a onclick="addStepFunc()" id="addStepButton" <c:if test="${contract.stepType eq 'ONE'}">hidden</c:if> href="#"><img src="../../../static/images/add_green.gif"/>Добавить</a>
+                                        <a onclick="addStepFunc()" id="addStepButton"  href="#"><img src="../../../static/images/add_green.gif"/>Добавить</a>
                                     </div>
                                     <!--группа дат-->
-                                    <div id="stepDates" class="group-date well col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div  class="group-date well col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                         <div id="firstStepDates" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                                 <input type="date"/>

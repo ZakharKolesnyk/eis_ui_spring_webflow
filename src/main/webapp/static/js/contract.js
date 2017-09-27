@@ -32,13 +32,10 @@ function changeHidePurchaseInfo() {
 function switchStepType() {
     if ($('input[name=stepType]:checked').val() === 'ONE') {
         $('#addStepButton').hide();
-        var steps = $('#stepDates').children();
-        $('#stepDates').children().hide();
-        $('#firstStepDates').show();
-        $('#lastStepDates').show();
+        $('#stepDates').hide();
     } else {
         $('#addStepButton').show();
-        $('#stepDates').children().show();
+        $('#stepDates').show();
     }
 }
 
